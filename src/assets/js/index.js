@@ -1,9 +1,26 @@
-import "../css/style.module.css";
+import style from "../css/style.module.css";
+import container from "./form/form";
+import {
+  checkEmail,
+  checkLenght,
+  checkPasswordsMatch,
+} from "./functionality/functionality";
 
-function saySomething(message) {
-  const title = document.createElement("h2");
-  title.textContent = message;
-  document.body.appendChild(title);
-}
+const app = document.createElement("div");
+app.className = style.app;
+// app.textContent = "Hello from Webpack";
+app.appendChild(container);
 
-saySomething("Hello from Webpack!!");
+document.body.appendChild(app);
+
+//=========================================================================================
+//=========================================================================================
+
+const form = document.getElementById("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  checkEmail("email");
+  checkLenght("username", 3, 15);
+  checkLenght("password", 6, 25);
+  checkPasswordsMatch("password", "password2");
+});
