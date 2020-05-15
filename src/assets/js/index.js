@@ -16,7 +16,7 @@ document.body.appendChild(app);
 //=========================================================================================
 //=========================================================================================
 
-const form = document.getElementById("form");
+// const form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkEmail("email");
